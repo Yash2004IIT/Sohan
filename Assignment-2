@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports Schedule</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+  }
+  #sidebar {
+    width: 20%;
+    background-color: #f1f1f1;
+    padding: 20px;
+  }
+  #main {
+    flex: 1;
+    padding: 20px;
+  }
+  .sport-icon {
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+<div id="sidebar">
+  <div class="sport-icon" onclick="displayMatches('football')">Football</div>
+  <div class="sport-icon" onclick="displayMatches('basketball')">Basketball</div>
+  <div class="sport-icon" onclick="displayMatches('tennis')">Tennis</div>
+</div>
+<div id="main">
+  <h2>Welcome to the Sports Schedule</h2>
+  <div id="match-details"></div>
+</div>
+<script>
+  function displayMatches(sport) {
+    // Simulated data, replace with actual data source
+    const matchesData = {
+      football: [
+        { team1: 'Team A', team2: 'Team B', location: 'Stadium 1', time: '12:00 PM' },
+        // More matches...
+      ],
+      basketball: [
+        { team1: 'Team X', team2: 'Team Y', location: 'Arena 2', time: '2:30 PM' },
+        // More matches...
+      ],
+      tennis: [
+        { team1: 'Player 1', team2: 'Player 2', location: 'Court 3', time: '4:00 PM' },
+        // More matches...
+      ]
+    };
+
+    const matchDetails = document.getElementById('match-details');
+    matchDetails.innerHTML = '';
+
+    const matches = matchesData[sport];
+    matches.forEach(match => {
+      const matchElement = document.createElement('div');
+      matchElement.innerHTML = `
+        <h3>${match.team1} vs ${match
